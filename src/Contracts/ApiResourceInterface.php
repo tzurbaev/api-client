@@ -29,11 +29,4 @@ interface ApiResourceInterface
      * @return string
      */
     public function apiUrl(string $path = '', bool $withPropagation = true): string;
-
-    /**
-     * Resource name.
-     *
-     * @return string|null
-     */
-    public function name();
 }

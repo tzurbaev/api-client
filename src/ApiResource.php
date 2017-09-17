@@ -174,36 +174,6 @@ abstract class ApiResource implements ArrayAccess, ApiResourceInterface
     }
 
     /**
-     * Resource name.
-     *
-     * @return string|null
-     */
-    public function name()
-    {
-        return $this->getData('name');
-    }
-
-    /**
-     * Resource status.
-     *
-     * @return string|null
-     */
-    public function status()
-    {
-        return $this->getData('status');
-    }
-
-    /**
-     * Get resource creation date.
-     *
-     * @return string|null
-     */
-    public function createdAt()
-    {
-        return $this->getData('created_at');
-    }
-
-    /**
      * Update resource data.
      *
      * @param array $payload

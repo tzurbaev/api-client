@@ -1,6 +1,6 @@
 <?php
 
-namespace Zurbaev\ApiClient\Tests\Helpers;
+namespace Zurbaev\ApiClient\Helpers;
 
 use GuzzleHttp\Psr7\Response;
 

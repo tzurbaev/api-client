@@ -2,9 +2,9 @@
 
 namespace Zurbaev\ApiClient\Tests\Helpers;
 
-use Zurbaev\ApiClient\Commands\ResourceCommand;
+use Zurbaev\ApiClient\Commands\ListResourcesCommand;
 
-class FakeResourceCommand extends ResourceCommand
+class FakeResourceCommand extends ListResourcesCommand
 {
     public function resourcePath()
     {
@@ -16,7 +16,7 @@ class FakeResourceCommand extends ResourceCommand
         return 'FakeResource';
     }
 
-    public function listResponseItemsKey()
+    public function itemsKey()
     {
         return 'bar';
     }

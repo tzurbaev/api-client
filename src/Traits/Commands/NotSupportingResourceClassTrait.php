@@ -1,6 +1,6 @@
 <?php
 
-namespace Zurbaev\ApiClient\Commands;
+namespace Zurbaev\ApiClient\Traits\Commands;
 
 trait NotSupportingResourceClassTrait
 {

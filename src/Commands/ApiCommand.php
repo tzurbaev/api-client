@@ -80,7 +80,7 @@ abstract class ApiCommand
      *
      * @param array $payload
      *
-     * @return static
+     * @return $this
      */
     public function withPayload(array $payload)
     {
@@ -95,7 +95,7 @@ abstract class ApiCommand
      * @param string|int $key
      * @param mixed      $value
      *
-     * @return static
+     * @return $this
      */
     public function attachPayload($key, $value)
     {

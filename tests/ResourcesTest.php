@@ -2,9 +2,9 @@
 
 namespace Zurbaev\ApiClient\Tests;
 
+use Zurbaev\ApiClient\Helpers\FakeResponse;
 use Zurbaev\ApiClient\Tests\Helpers\Api;
 use Zurbaev\ApiClient\Tests\Helpers\FakeResourceCommand;
-use Zurbaev\ApiClient\Tests\Helpers\FakeResponse;
 use PHPUnit\Framework\TestCase;
 use Zurbaev\ApiClient\Tests\Stubs\FakeApiProvider;
 use Zurbaev\ApiClient\Tests\Stubs\FakeResource;
@@ -24,7 +24,7 @@ class ResourcesTest extends TestCase
 
     public function testResourceCommandShouldThrowExceptionIfResourceDataIsMissing()
     {
-        $server = Api::fakeResource(function ($http) {
+        $resource = Api::fakeResource(function ($http) {
             $http->shouldReceive('request')->andReturn(
                 FakeResponse::fake()->withJson([])->toResponse()
             );
@@ -33,19 +33,19 @@ class ResourcesTest extends TestCase
         $command = new FakeResourceCommand();
 
         $this->expectException(\InvalidArgumentException::class);
-        $command->from($server);
+        $command->from($resource);
     }
 
     public function testResourceCommandShouldReturnCorrectListIfResourceDataContainsEmptyArray()
     {
-        $server = Api::fakeResource(function ($http) {
+        $resource = Api::fakeResource(function ($http) {
             $http->shouldReceive('request')->andReturn(
                 FakeResponse::fake()->withJson(['bar' => []])->toResponse()
             );
         });
 
         $command = new FakeResourceCommand();
-        $result = $command->from($server);
+        $result = $command->from($resource);
 
         $this->assertInternalType('array', $result);
         $this->assertSame(0, count($result));

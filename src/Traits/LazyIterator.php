@@ -12,6 +12,11 @@ namespace Zurbaev\ApiClient\Traits;
 trait LazyIterator
 {
     /**
+     * Performs lazy load checks and loads items if required.
+     */
+    abstract protected function checkLazyLoad();
+
+    /**
      * Current iterator item.
      *
      * @return mixed|null

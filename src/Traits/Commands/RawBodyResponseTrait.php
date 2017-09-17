@@ -1,6 +1,6 @@
 <?php
 
-namespace Zurbaev\ApiClient\Commands;
+namespace Zurbaev\ApiClient\Traits\Commands;
 
 use Psr\Http\Message\ResponseInterface;
 use Zurbaev\ApiClient\Contracts\ApiResourceInterface;
