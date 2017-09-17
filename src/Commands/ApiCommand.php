@@ -66,10 +66,14 @@ abstract class ApiCommand
     /**
      * HTTP request options.
      *
-     * @return array
+     * @return array|null
      */
     public function requestOptions()
     {
+        if (empty($this->payload)) {
+            return null;
+        }
+
         return [
             'json' => $this->payload,
         ];
@@ -232,10 +236,12 @@ abstract class ApiCommand
      */
     protected function execute(ApiResourceInterface $resource)
     {
-        return $resource->getHttpClient()->request(
-            $this->requestMethod(),
-            $this->requestUrl($resource),
-            $this->requestOptions()
-        );
+        $client = $resource->getHttpClient();
+
+        if (is_null($options = $this->requestOptions())) {
+            return $client->request($this->requestMethod(), $this->requestUrl($resource));
+        }
+
+        return $client->request($this->requestMethod(), $this->requestUrl($resource), $options);
     }
 }
